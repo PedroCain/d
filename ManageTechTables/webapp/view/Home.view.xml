@@ -1,0 +1,131 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartTable="sap.ui.comp.smarttable"
+	controllerName="ManageTechTables.ManageTechTables.controller.Home" displayBlock="false">
+	<App id="app" class="myApp">
+		<pages>
+			<Page title="{i18n>h_home_adm}" class="sapUiContentPadding" backgroundDesign="Solid" showFooter="false" enableScrolling="true" id="home_id">
+				<headerContent>
+					<!--Start Insert Andrea-->
+					<!--<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://sap-logo-shape" size="1em" id="icon_sys"/>-->
+					<!--<Label visible="true" text="{systemName>/system}" class="sapUiTinyMarginEnd"/>-->
+					<!--End Insert Andrea-->					
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+					<Button text="{i18n>b_user_view}" tooltip="{i18n>b_user_view}" icon="sap-icon://share" press="toUserView"/>
+					<!--Start Delete Angelo-->
+					<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="{i18n>b_exit}" tooltip="{i18n>b_exit}"-->
+					<!--	icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content>
+					<IconTabBar id="bar0" selectedKey="families">
+						<items>
+							<IconTabFilter key="families" id="filter_group" text="{i18n>t_groups}" icon="sap-icon://family-care"
+								count="{ path: 'tablegroupnodup>/', formatter: '.formatter.tablen' }">
+								<content>
+									<HBox alignItems="Center" direction="Inherit" alignContent="Center" renderType="Bare" wrap="Wrap">
+										<items>
+											<Button id="b_createg" class="mybtn" type="Emphasized" text="{i18n>b_createg}" icon="sap-icon://add" press="toGroupCreate"/>
+											<Button id="b_showg" class="mybtn" type="Emphasized" text="{i18n>b_showgu}" icon="sap-icon://sys-find" press="toGroupDetail"/>
+										</items>
+									</HBox>
+									<Panel backgroundDesign="Transparent" expandAnimation="false"/>
+									<Table id="tableGroup" items="{path :'tablegroupnodup>/', sorter :{ path : 'GROUPID', descending :false } }" mode="SingleSelectMaster"
+										growing="true" growingThreshold="10" fixedLayout="false">
+										<headerToolbar>
+											<Toolbar>
+												<content>
+													<SearchField xmlns="sap.m" width="15%" liveChange="onSearchFamily"/>
+												</content>
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column id="idgroup" hAlign="Begin">
+												<Label text="{i18n>idgrou}" design="Bold"/>
+											</Column>
+											<Column id="descriptionGroup" hAlign="Begin">
+												<Label text="{i18n>descriptionGroup}" design="Bold"/>
+											</Column>
+											<Column id="tablesTabGroupCount" hAlign="Begin">
+												<Label text="{i18n>tablesTabGroup}" design="Bold"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem id="item_tablegroup" type="Active" press="onPressTableGroup">
+												<cells>
+													<Text id="text1_group" text="{tablegroupnodup>GROUPID}"/>
+													<Text id="text2_group" text="{tablegroupnodup>DESCRIPTION}"/>
+													<Text id="count_group" text="{parts: [{path: 'tablegroupnodup>GROUPID' }, { path: 'usergroup>/' }], formatter: '.formatter.userGroupCount'}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</content>
+							</IconTabFilter>
+							<!--Start Insert Angelo-->
+							<IconTabFilter key="tables" id="tablesAdmin" text="{i18n>tablesHomeLabel}" icon="sap-icon://chart-table-view"
+								count="{ path: 'tablesTab>/', formatter: '.formatter.tablen' }">
+								<content>
+									<HBox id="hboxTables" alignItems="Center" direction="Inherit" alignContent="Center" renderType="Bare" wrap="Wrap">
+										<items>
+											<Button id="b_import" type="Emphasized" tooltip="{i18n>b_import}" icon="sap-icon://group-2" press="onShowImportDialog"
+												text="{i18n>b_import}"/>
+										</items>
+									</HBox>
+									<Panel id="panelTables" backgroundDesign="Transparent" expandAnimation="false"/>
+									<Table id="tableTables"
+										items="{ path : 'tables>/', sorter : [{ path : 'ADMIN', descending : true }, { path : 'USERNAME', descending :false }] }"
+										mode="SingleSelectMaster" growing="true" growingThreshold="10" fixedLayout="false">
+										<headerToolbar>
+											<Toolbar id="toolbarTables">
+												<content>
+													<SearchField xmlns="sap.m" width="15%" liveChange="onSearchTables" placeholder="Search"/>
+												</content>
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column id="colTablename" hAlign="Begin">
+												<Label text="{i18n>tablenameLabel}" design="Bold"/>
+											</Column>
+											<Column id="colSystem" hAlign="Begin">
+												<Label text="{i18n>systemLabel}" design="Bold"/>
+											</Column>
+											<Column id="colDescription" hAlign="Begin">
+												<Label text="{i18n>descriptionLabel}" design="Bold"/>
+											</Column>
+											<Column id="colResponsible" hAlign="Begin">
+												<Label text="{i18n>responsibleLabel}" design="Bold"/>
+											</Column>
+											<Column id="colDate" hAlign="Begin">
+												<Label text="{i18n>dateLabel}" design="Bold"/>
+											</Column>
+											<!--Start Insert Angelo-->
+											<Column id="colGroup" hAlign="Begin">
+												<Label text="{i18n>groupLabel}" design="Bold"/>
+											</Column>
+											<!--End Insert Angelo-->
+										</columns>
+										<items>
+											<ColumnListItem id="tableTabItems" type="Active" press="null">
+												<cells>
+													<Text id="tablenameId" text="{tables>TABLENAME}" wrapping="false"/>
+													<Text id="systemId" text="{tables>SYSTEM}" wrapping="false"/>
+													<Text id="descriptionId" text="{tables>DESCRIPTION}"/>
+													<Text id="responsibleId" text="{tables>RESPONSIBLE}"/>
+													<Text id="dateId" text="{path: 'tables>CREATIONDATE', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' }}"/>
+													<!--Start Insert Angelo-->
+													<Text id="groupId" text="{tables>GROUPID}"/>
+													<!--End Insert Angelo-->
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</content>
+							</IconTabFilter>
+							<!--End Insert Angelo-->
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

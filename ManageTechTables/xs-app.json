@@ -1,0 +1,116 @@
+{
+  "welcomeFile": "/ManageTechTables/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/ManageTechTables/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    },
+    
+{
+  "source": "(.*)/ERPIBERIA_ADN/users/(.*)(.xsjs)",
+  "destination": "users-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/users/(.*)(.xsodata)",
+  "destination": "users-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+
+{
+  "source": "(.*)/ERPIBERIA_ADN/versions/(.*)(.xsjs)",
+  "destination": "versions-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/versions/(.*)(.xsodata)",
+  "destination": "versions-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/tables/(.*)(.xsjs)",
+  "destination": "tables-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/tables/(.*)(.xsodata)",
+  "destination": "tables-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+}
+,
+{
+  "source": "(.*)/ERPIBERIA_ADN/tablecontent/(.*)(.xsjs)",
+  "destination": "tablecontent-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/tablecontent/(.*)(.xsodata)",
+  "destination": "tablecontent-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/userGroup/(.*)(.xsjs)",
+  "destination": "userGroup-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/userGroup/(.*)(.xsodata)",
+  "destination": "userGroup-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/dependencies/(.*)(.xsjs)",
+  "destination": "dependencies-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/dependencies/(.*)(.xsodata)",
+  "destination": "dependencies-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/log/(.*)(.xsjs)",
+  "destination": "log-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/log/(.*)(.xsodata)",
+  "destination": "log-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/tableGroup/(.*)(.xsjs)",
+  "destination": "tablegroup-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/tableGroup//(.*)(.xsodata)",
+  "destination": "tablegroup-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},{
+  "source": "(.*)(.xsjs)",
+  "destination": "core-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)(.xsodata)",
+  "destination": "core-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+}
+
+  ]
+}

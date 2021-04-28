@@ -1,0 +1,6 @@
+{
+    "description": "Massive table movement",
+    "action": "ERPIBERIA_ADN.table_content:moveTable.xsjs::run",
+    "schedules": [ 
+  ]
+}

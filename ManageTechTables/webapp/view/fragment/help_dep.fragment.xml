@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>table}" class="sapUiPopupWithPadding" items="{tables_2>/}" search="_handleValueHelpSearchCC_dep"
+		confirm="_handleValueHelpConfirm_dep" cancel="_handleValueHelpCloseCC_dep" liveChange="_handleValueHelpSearchCC_dep">
+		<StandardListItem title="{tables_2>TABLENAME}" description="{tables_2>SYSTEM}" info="{tables_2>DESCRIPTION}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

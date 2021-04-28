@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="customizingDialogId" noDataText="No tables found" title="{i18n>customTable}" liveChange="onSearchCustomizingTable"
+		confirm="handleSelectCustomizing" cancel="handleCloseCustomizing" items="{customizingTables>/}">
+		<StandardListItem title="{customizingTables>Tablename}" description="" iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

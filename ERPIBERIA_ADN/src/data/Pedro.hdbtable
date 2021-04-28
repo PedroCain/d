@@ -1,0 +1,4 @@
+COLUMN TABLE "ERPIBERIA_ADN.data::Pedro" (
+    "nombre" NVARCHAR(100),
+    "edad" INTEGER
+)

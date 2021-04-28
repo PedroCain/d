@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>h_uploadECC}" class="sapUiContentPadding" state="Warning" id="uploadECC">
+		<content>
+			<!--Start Modify Angelo-->
+			<Text text="{i18n>tupl_ecc}"/>
+			<!--<Text text="{dialogUpload>/dialogText}"/>-->
+			<!--End Modify Angelo-->
+		</content>
+		<beginButton>
+			<Button text="{i18n>b_ok}" press="onUploadECC"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>b_cancel}" press="onCloseDialogUplECC"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

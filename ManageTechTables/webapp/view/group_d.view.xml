@@ -1,0 +1,78 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ManageTechTables.ManageTechTables.controller.group_d">
+	<App>
+		<pages>
+			<Page xmlns="sap.m" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiContentPadding"
+				showNavButton="true" id="page_groupd" backgroundDesign="Solid" navButtonPress="action"
+				action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'Home'\}\}\}">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+					<!--Start Delete Angelo-->
+					<!--<Button text="{i18n>b_exit}" tooltip="{i18n>b_exit}" icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content>
+					<Panel id="panel_edit" backgroundDesign="Transparent">
+						<content>
+							<Button id="b_see" type="Emphasized" text="{i18n>sw_see}" icon="sap-icon://sys-find" press="_toSee"/>
+							<Button id="b_edit" type="Emphasized" text="{i18n>sw_edit}" icon="sap-icon://edit" press="_toEdit"/>
+						</content>
+					</Panel>
+					<f:SimpleForm xmlns:f="sap.ui.layout.form" id="group_datail" layout="ResponsiveGridLayout" singleContainerFullSize="false" editable="true"
+						columnsM="1" columnsL="1" columnsXL="2" emptySpanS="0" emptySpanM="0" emptySpanXL="0" adjustLabelSpan="false" labelSpanS="12" labelSpanM="4"
+						labelSpanL="3" labelSpanXL="4" backgroundDesign="Solid">
+						<f:content>
+							<Label text="{i18n>c_groupid}" labelFor="idgroup"/>
+							<Input id="idgroup" enabled="false" required="true" width="30%" liveChange="handleUserInput" change="onCheckExist"/>
+							<Label text="{i18n>c_description}" labelFor="group_descr" required="true"/>
+							<Input id="group_descr" enabled="false" width="30%" liveChange="handleUserInput"/>
+						</f:content>
+					</f:SimpleForm>
+					<Panel id="panel0" backgroundDesign="Transparent"/>
+					<Toolbar design="Solid">
+						<content>
+							<Title text="{i18n>table_syst}"/>
+							<SearchField xmlns="sap.m" id="searchid" width="15%" liveChange="onSearchTableGroup"/>
+							<ToolbarSpacer id="spacer1"/>
+							<Input xmlns="sap.m" id="input_table" width="35%" placeholder="{i18n>table_syst}" valueHelpRequest="h_table_group" valueHelpOnly="true"
+								showValueHelp="true" showTableSuggestionValueHelp="false"/>
+							<Button xmlns="sap.m" id="add_table_to_group" icon="sap-icon://add" press="onAddTableGroup"/>
+						</content>
+					</Toolbar>
+					<Table id="idtablegroup" items="{path :'tablegroup_d>/', sorter :{ path : 'TABLENAME', descending :false } }" mode="Delete"
+						delete="onDelTableGrp">
+						<columns>
+							<Column hAlign="Begin">
+								<Label text="{i18n>table}" design="Bold"/>
+							</Column>
+							<Column hAlign="Begin">
+								<Label text="{i18n>system}" design="Bold"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active">
+								<cells>
+									<Text text="{tablegroup_d>TABLENAME}"/>
+									<Text text="{tablegroup_d>SYSTEMNAME}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Bar id="Bar_group" visible="false">
+						<contentLeft/>
+						<contentMiddle>
+							<Button id="btnbargroup" type="Emphasized" text="{i18n>b_save}" icon="sap-icon://sys-enter">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

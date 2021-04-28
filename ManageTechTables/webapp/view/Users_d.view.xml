@@ -1,0 +1,102 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="ManageTechTables.ManageTechTables.controller.Users_d">
+	<Page xmlns="sap.m" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiContentPadding" showNavButton="true" backgroundDesign="Solid" id="page_user" navButtonPress="onCancel">
+		<headerContent>
+			<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+			<Label id="head_user"/>
+			<Button text="{i18n>b_exit}" tooltip="{i18n>b_exit}" icon="sap-icon://action" press="onLogin"/>
+		</headerContent>
+		<content>
+			<f:SimpleForm xmlns:f="sap.ui.layout.form" id="user_detail" layout="ResponsiveGridLayout" editable="true" singleContainerFullSize="false" columnsM="1" columnsL="1" columnsXL="2" emptySpanS="0" emptySpanM="0" emptySpanL="4" emptySpanXL="0" adjustLabelSpan="false" labelSpanS="12" labelSpanM="4" labelSpanL="3" labelSpanXL="4" backgroundDesign="Solid">
+				<f:content>
+					<Label text="{i18n>UserId}"/>
+					<Input value="{users_d>/USERNAME}" id="userid" required="true" liveChange="handleUserInput"/>
+					<Label text="{i18n>password}"/>
+					<Input value="{users_d>/PASSWORD}" id="password" required="true" liveChange="handleUserInput"/>
+					<Label text="{i18n>name}"/>
+					<Input value="{users_d>/NAME}" id="name" liveChange="handleUserInput"/>
+					<Label text="{i18n>surname}"/>
+					<Input value="{users_d>/SURNAME}" id="surname" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>surname2}"/>
+					<Input value="{users_d>/SURNAME2}" id="surname2" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>email}" labelFor="email"/>
+					<Input class="sapUiSmallMarginBottom" type="Email" required="true" valueStateText="E-Mail must be a valid email address" id="email" value="{ path : 'users_d>/EMAIL', type : '.customEMailType' }"/>
+					<Label text="{i18n>contact}"/>
+					<Input value="{users_d>/CONTACT}" id="contact" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>company}"/>
+					<Input value="{users_d>/COMPANY}" id="company" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>department}"/>
+					<Input value="{users_d>/DEPARTMENT}" id="department" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>country}"/>
+					<Input value="{users_d>/COUNTRY}" id="country" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>language}"/>
+					<Input value="{users_d>/LANGUAGE}" id="languaget" required="false" liveChange="handleUserInput"/>
+					<Label text="{i18n>roleAdmin}"/>
+					<CheckBox id="checkbADMIN" selected="{ path: 'users_d>/ADMIN', formatter: '.formatter.checkSelectedItems' }"/>
+					<Input value="{users_d>/LOCKED1}" id="locked1" required="false" visible="false"/>
+					<Input value="{users_d>/LOCKED2}" id="locked2" required="false" visible="false"/>
+					<Input value="{users_d>/LOCKED3}" id="locked3" required="false" visible="false"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<content>
+			<Panel>
+				<content><ToolbarSpacer xmlns="sap.m"/>
+				</content>
+			</Panel>
+			<Table id="list" items="{path :'user_group_d>/', sorter :{ path : 'GROUPID',descending :false } }" mode="Delete" delete="onDelTableUser">
+				<headerToolbar>
+					<Toolbar design="Solid">
+						<content>
+							<Title text="{i18n>c_user_group}"/>
+							<ToolbarSpacer id="spacer1"/>
+							<Input xmlns="sap.m" id="input_table" width="40%" placeholder="{i18n>fam}" valueHelpRequest="h_table_user" valueHelpOnly="true" showValueHelp="true" showTableSuggestionValueHelp="false"/>
+							<Button xmlns="sap.m" id="add" icon="sap-icon://add" type="Emphasized" press="onAddUserFam"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Begin" visible="false">
+						<Label text="{i18n>c_username}" design="Bold"/>
+					</Column>
+					<Column hAlign="Begin">
+						<Label text="{i18n>c_groupid}" design="Bold"/>
+					</Column>
+					<Column hAlign="Begin">
+						<Label text="{i18n>c_mode}" design="Bold"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" id="listItem">
+						<cells>
+							<Text text="{user_group_d>USERNAME}" visible="false"/>
+							<Text text="{user_group_d>GROUPID}"/>
+							
+							<Select xmlns:sap.ui.core="sap.ui.core" ariaLabelledBy="label_sel" items="{user_mode>/}" textAlign="Begin" selectedKey="{user_group_d>MODE}">
+							    <items>
+							        <sap.ui.core:ListItem text="{user_mode>MODE}" key="{user_mode>MODE}"/>
+							      </items>
+							</Select>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar id="Bar_user">
+				<contentLeft/>
+				<contentMiddle>
+					<Button id="btnbaruser" type="Emphasized" text="{i18n>b_save}" icon="sap-icon://sys-enter">
+						<layoutData>
+							<FlexItemData baseSize="auto"/>
+						</layoutData>
+					</Button>
+					<Button type="Emphasized" text="{i18n>cancel}" icon="sap-icon://sys-cancel" press="onCancel">
+						<layoutData>
+							<FlexItemData baseSize="auto"/>
+						</layoutData>
+					</Button>
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

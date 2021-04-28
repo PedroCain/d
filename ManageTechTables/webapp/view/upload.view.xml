@@ -1,0 +1,60 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ManageTechTables.ManageTechTables.controller.upload">
+	<App>
+		<pages>
+			<Page id="uploadPage" class="sapUiContentPadding" backgroundDesign="Solid" showNavButton="true" navButtonPress="onCancel">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+					<!--Start Delete Angelo-->
+					<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="{i18n>b_exit}" tooltip="{i18n>b_exit}"-->
+					<!--	icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content>
+					<IconTabBar selectedKey="k_resume" id="bar0" select="onSelect">
+						<items>
+							<IconTabFilter text="{i18n>h_resume}" icon="sap-icon://task" id="filter1" key="k_resume">
+								<Label text="{i18n>h_resume}" width="100%" id="label1" textAlign="Center" design="Bold"/>
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>h_alltable}" icon="sap-icon://table-view" id="filter2" key="k_all">
+								<Label text="{i18n>h_alltable}" width="100%" id="label2" textAlign="Center" design="Bold"/>
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>h_dep}" icon="sap-icon://pipeline-analysis" key="k_dep" id="filter3">
+								<Label text="{i18n>h_dep}" width="100%" id="label3" textAlign="Center" design="Bold"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<t:Table id="table_new" title="New version" selectionMode="None" enableColumnReordering="true" visibleRowCountMode="Auto"/>
+				<!--visibleRowCount="20"-->
+				<Panel id="panel_fin" backgroundDesign="Transparent" expandAnimation="false"/>
+				<footer>
+					<Bar id="Bar_d">
+						<contentMiddle>
+							<!--Download from SAP button-->
+							<Button id="bupl_ecc" type="Emphasized" tooltip="{i18n>bupl_ecc}" icon="sap-icon://upload-to-cloud" press="onOpenDialogUplEcc"
+								text="{i18n>bupl_ecc}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Upload to SAP button-->
+							<Button id="bupl_ver" type="Emphasized" tooltip="{i18n>bupl_rec}" icon="sap-icon://upload" text="{i18n>bupl_rec}" press="onUploadRecords">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Cancel button-->
+							<Button type="Emphasized" text="{i18n>cancel}" icon="sap-icon://sys-cancel" press="onCancel" tooltip="{i18n>cancel}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

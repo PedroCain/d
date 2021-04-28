@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>dialogtitle}" class="sapUiContentPadding">
+		<content>
+			<core:Icon src="sap-icon://locked" size="3rem" class="sapUiMediumMargin" press="lock"/>
+			<core:Icon src="sap-icon://unlocked" size="3rem" class="sapUiMediumMargin" press="unlock"/>
+		</content>
+		<beginButton>
+			<Button text="{i18n>dialogCloseButtonText}" press="onCloseDialogLockUser"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

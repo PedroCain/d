@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title></title>
+
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"ManageTechTables/ManageTechTables": "./"}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+            sap.ui.localResources("views");
+            sap.ui.localResources("i18n");
+            sap.ui.localResources("utils");
+            sap.ui.view("excelView", {
+            	type: "XML",
+                viewName: "ManageTechTables/view/ExcelDownloadThread"
+            }).placeAt("content");
+          	// sap.ui.getCore().attachInit(function() {
+
+			// 	new sap.m.App ({
+			// 		pages : [
+			// 			new sap.m.Page({
+			// 				showHeader : false,
+			// 				enableScrolling : false,
+			// 				content : [
+			// 					new sap.ui.core.ComponentContainer({
+			// 						height : "100%", 
+			// 						name : "ManageTechTables"
+			// 					})
+			// 				]
+			// 			})
+			// 		]
+			// 	}).placeAt("content");
+			// });
+			
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

@@ -1,0 +1,19 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="ManageTechTables.ManageTechTables.controller.login" id="v_login">
+	<App xmlns="sap.m" id="app" class="myApp">
+		<Page showHeader="false">
+			<content>
+				<VBox alignItems="Center" justifyContent="Center" alignContent="Center" fitContainer="true" backgroundDesign="Solid">
+					<Image class="sapUiTinyMarginBeginEnd" src="{logo>/sPath}" width="100%"/>
+					<items>
+						<Label id="label0" width="100%"/>
+						<Label id="label3" text="{i18n>eneltab}" width="100%"/>
+						<Label id="label2" text="{i18n>logon}" width="100%"/>
+						<Input id="uid" placeholder="{i18n>userid}"/>
+						<Input id="pasw" placeholder="{i18n>password}" type="Password"/>
+						<Button class="myCustomButton" type="Emphasized" text="{i18n>login}" width="12rem" press="onLoginTap"/>
+					</items>
+				</VBox>
+			</content>
+		</Page>
+	</App>
+</mvc:View>

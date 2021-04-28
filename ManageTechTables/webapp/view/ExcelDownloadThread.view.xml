@@ -1,0 +1,10 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ManageTechTables.ManageTechTables.controller.ExcelDownloadThread" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Excel Download">
+				<content align="center"><Image class="sapUiMediumMargin" src="{logoExcel>/sPath}" width="80%"/></content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

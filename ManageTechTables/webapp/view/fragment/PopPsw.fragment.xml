@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover
+		title="{i18n>h_chgpsw}"
+		class="sapUiPopupWithPadding"
+		placement="Bottom" >
+		
+		<beginButton>
+			<Button text="{i18n>b_save}" press="onChangePsw" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>b_cancel}" press="onClosePop" />
+		</endButton>
+
+		
+		<content>
+			<Input id = "new_psw_1"  type="Password"  placeholder="{i18n>p_new_psw}" />
+			<Input id = "new_psw_2"  class="sapUiSmallMarginBottom" type="Password" placeholder="{i18n>p_rep_psw}" change="liveChangePsw" />
+		</content>
+
+	</ResponsivePopover>
+</core:FragmentDefinition>

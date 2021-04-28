@@ -1,0 +1,33 @@
+{
+  "welcomeFile": "/web/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+
+{
+  "source": "(.*)/ERPIBERIA_ADN/versions/(.*)(.xsjs)",
+  "destination": "versions-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/versions/(.*)(.xsodata)",
+  "destination": "versions-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+},
+{
+  "source": "(.*)/ERPIBERIA_ADN/tables/(.*)(.xsjs)",
+  "destination": "tables-xsjs-backend",
+  "csrfProtection": false,
+  "authenticationType": "xsuaa"
+}, {
+  "source": "(.*)/ERPIBERIA_ADN/tables/(.*)(.xsodata)",
+  "destination": "tables-xsjs-backend",
+  "authenticationType": "xsuaa"
+
+}
+]
+
+}

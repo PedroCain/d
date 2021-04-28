@@ -1,0 +1,2 @@
+service {"ERPIBERIA_ADN"."LOG" as "log";
+         "ERPIBERIA_ADN"."LOG_MASSIVE" as "massiveLog";

@@ -1,0 +1,55 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ManageTechTables.ManageTechTables.controller.Analysis">
+	<App>
+		<pages>
+			<Page id="idPage" showNavButton="true" class="sapUiContentPadding" navButtonPress="onPressBack" backgroundDesign="Solid"
+				title="{i18n>title_analysis}">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="username"/>
+					<!--Start Delete Angelo-->
+					<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="{i18n>b_exit}" tooltip="{i18n>b_exit}"-->
+					<!--	icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content id="analysisContent">
+					<!--Start Delete Angelo-->
+					<!--<Panel backgroundDesign="Transparent"/>-->
+					<!--End Delete Angelo-->
+					<!--<t:Table id="table_analysis" selectionMode="None" enableColumnReordering="true"/>-->
+				</content>
+				<!--Start Delete Angelo-->
+				<!--<Panel backgroundDesign="Transparent" expandAnimation="false"/>-->
+				<!--End Delete Angelo-->
+				<footer>
+					<Bar id="Bar_d">
+						<contentMiddle>
+							<!--Start Delete Angelo-->
+							<!--<Button id="notify" type="Emphasized" tooltip="{i18n>a_iconNotify}" icon="sap-icon://notification" press="onNotify"-->
+							<!--	text="{i18n>a_iconNotify}">-->
+							<!--	<layoutData>-->
+							<!--		<FlexItemData baseSize="auto"/>-->
+							<!--	</layoutData>-->
+							<!--</Button>-->
+							<!--End Delete Angelo-->
+							<!--Start Insert Angelo-->
+							<Button id="downloadAnalysis" type="Emphasized" tooltip="{i18n>downAnalysis}" icon="sap-icon://download" press="onDownCSVAnalysis"
+								text="{i18n>downAnalysis}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Angelo-->
+							<Button id="delete" type="Emphasized" tooltip="{i18n>a_iconCanc}" icon="sap-icon://cancel" press="onCancel" text="{i18n>a_iconCanc}"
+								activeIcon="sap-icon://cancel">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

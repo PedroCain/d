@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ManageTechTables.ManageTechTables.controller.massiveLog">
+	<App>
+		<pages>
+			<Page id="log" class="sapUiContentPadding" title="{i18n>h_log}" backgroundDesign="Solid" showFooter="false" showNavButton="true"
+				navButtonPress="onBack">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+				</headerContent>
+				<content>
+					<Panel id="panel0" backgroundDesign="Transparent" expandAnimation="false"/>
+					<t:Table id="table_log_m" title="{i18n>h_versions}" rows="{log_m>/}" selectionMode="None" enableColumnReordering="true">
+						<t:columns>
+							<t:Column filterProperty="USERNAME" id="ch_username" hAlign="Begin">
+								<Label text="{i18n>c_username}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>USERNAME}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="DATE" hAlign="Begin">
+								<Label text="{i18n>c_date_massive}" design="Bold"/>
+								<t:template>
+									<Text text="{ path: 'log_m>DATE', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } } "></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="TABLENAME" hAlign="Begin">
+								<Label text="{i18n>c_tablename}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>TABLENAME}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="LABEL" hAlign="Begin">
+								<Label text="{i18n>c_label}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>LABEL}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="START_SYSTEM" id="ch_systemname" hAlign="Begin">
+								<Label text="{i18n>c_start_system}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>START_SYSTEM}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="END_SYSTEM" hAlign="Begin">
+								<Label text="{i18n>c_end_system}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>END_SYSTEM}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="MESSAGE" hAlign="Begin">
+								<Label text="{i18n>c_message}" design="Bold"/>
+								<t:template>
+									<Text text="{log_m>MESSAGE}"></Text>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<Panel backgroundDesign="Transparent" expandAnimation="false"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

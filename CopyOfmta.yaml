@@ -1,0 +1,273 @@
+ID: ERPIBERIA
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: web
+   type: html5
+   path: web
+   parameters:
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_ERPIBERIA
+    - name: dest_ERPIBERIA
+    - name: core_xsjs_api
+      group: destinations
+      properties:
+       name: core_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: users_xsjs_api
+      group: destinations
+      properties:
+       name: users_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: userGroup_api
+      group: destinations
+      properties:
+       name: userGroup_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: versions_xsjs_api
+      group: destinations
+      properties:
+       name: versions_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+
+    - name: tables_xsjs_api
+      group: destinations
+      properties:
+       name: tables_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: tablegroup_xsjs_api
+      group: destinations
+      properties:
+       name: tablegroup_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: log_xsjs_api
+      group: destinations
+      properties:
+       name: log_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: dependencies_xsjs_api
+      group: destinations
+      properties:
+       name: dependencies_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: tablecontent_xsjs_api
+      group: destinations
+      properties:
+       name: tablecontent_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+       
+
+ - name: ERPIBERIA_ADN
+   type: hdb
+   path: ERPIBERIA_ADN
+   requires:
+    - name: hdi_ERPIBERIA_ADN
+ - name: core_xsjs
+   type: nodejs
+   path: core_xsjs
+   provides:
+    - name: core_xsjs_api
+      properties:
+         url: ${default-url}
+   requires:
+    - name: uaa_ERPIBERIA
+    - name: hdi_ERPIBERIA_ADN
+    - name: ERPIBERIA_ADN
+   parameters:
+      memory: 256M
+ - name: user_xsjs
+   type: nodejs
+   path: user_xsjs
+   provides:
+    - name: users_xsjs_api
+      properties:
+         url: ${default-url}
+   parameters:
+      memory: 256M
+      disk-quota: 512M
+ - name: tablecontent_xsjs
+   type: nodejs
+   path: tablecontent_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: tablecontent_xsjs_api
+      properties:
+         url: ${default-url}
+
+ - name: ManageTechTables
+   type: html5
+   path: ManageTechTables
+   parameters:
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_ERPIBERIA
+    - name: dest_ERPIBERIA
+    - name: core_xsjs_api
+      group: destinations
+      properties:
+       name: core_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: users_xsjs_api
+      group: destinations
+      properties:
+       name: users_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: userGroup_api
+      group: destinations
+      properties:
+       name: userGroup_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: versions_xsjs_api
+      group: destinations
+      properties:
+       name: versions_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+
+    - name: tables_xsjs_api
+      group: destinations
+      properties:
+       name: tables_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: tablegroup_xsjs_api
+      group: destinations
+      properties:
+       name: tablegroup_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: log_xsjs_api
+      group: destinations
+      properties:
+       name: log_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: dependencies_xsjs_api
+      group: destinations
+      properties:
+       name: dependencies_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    - name: tablecontent_xsjs_api
+      group: destinations
+      properties:
+       name: tablecontent_xsjs_backend
+       url: '~{url}'
+       forwardAuthToken: true
+    
+ - name: userGroup
+   type: nodejs
+   path: userGroup
+   parameters:
+      memory: 256M
+   provides:
+    - name: userGroup_api
+      properties:
+         url: ${default-url}
+
+
+ - name: versions_xsjs
+   type: nodejs
+   path: versions_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: versions_xsjs_api
+      properties:
+         url: ${default-url}
+
+
+
+
+
+ 
+
+
+ - name: tables_xsjs
+   type: nodejs
+   path: tables_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: tables_xsjs_api
+      properties:
+         url: ${default-url}
+
+
+ 
+
+
+ - name: tablegroup_xsjs
+   type: nodejs
+   path: tablegroup_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: tablegroup_xsjs_api
+      properties:
+         url: ${default-url}
+
+
+ - name: log_xsjs
+   type: nodejs
+   path: log_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: log_xsjs_api
+      properties:
+         url: ${default-url}
+
+
+ - name: dependencies_xsjs
+   type: nodejs
+   path: dependencies_xsjs
+   parameters:
+      memory: 256M
+   provides:
+    - name: dependencies_xsjs_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: uaa_ERPIBERIA
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+   type: org.cloudfoundry.managed-service
+
+ - name: dest_ERPIBERIA
+   parameters:
+      service-plan: lite
+      service: destination
+   type: org.cloudfoundry.managed-service
+
+
+ - name: hdi_ERPIBERIA_ADN
+   parameters:
+      config:
+         schema: ERPIBERIA_ADN
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+

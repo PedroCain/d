@@ -1,0 +1,11 @@
+host = "api.mailgun.net";
+port = 443;
+pathPrefix = "/v3/sandbox51716250ebf348be9fbc56b53e2c42ce.mailgun.org";
+proxyType = none;
+proxyHost = "proxy";
+proxyPort = 8080;
+authType = basic;
+useSSL = true;
+timeout = 30000;
+sslHostCheck = false;
+sslAuth = anonymous;

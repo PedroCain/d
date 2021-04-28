@@ -1,0 +1,304 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ManageTechTables.ManageTechTables",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ManageTechTables.ManageTechTables.view.Home",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ManageTechTables.ManageTechTables.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ManageTechTables.ManageTechTables.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+					"pattern": "login",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "",
+					"name": "home",
+					"target": "home"
+				},
+				{
+					"pattern": "home_u/{username},{role}",
+					"name": "home_u",
+					"target": "home_u"
+				},
+				{
+					"pattern": "log/{table},{username},{role}",
+					"name": "log",
+					"target": "log"
+				},
+				{
+					"pattern": "users_d/{username}",
+					"name": "users_d",
+					"target": [
+						"users_d"
+					],
+					"greedy": false
+				},
+				{
+					"name": "Home",
+					"pattern": "Home",
+					"target": [
+						"home"
+					]
+				},
+				{
+					"name": "dep_d",
+					"pattern": "dep_d/{ori_table},{ori_system},{ori_field}",
+					"target": [
+						"dep_d"
+					],
+					"greedy": false
+				},
+				{
+					"name": "group_d",
+					"pattern": "group_d/{group},{group_descr}",
+					"target": [
+						"group_d"
+					]
+				},
+				{
+					"pattern": "upload/{table},{system},{vers},{uid},{role},{fname},{ncsv},{source}",
+					"name": "upload",
+					"target": "upload"
+				},
+				{
+					"pattern": "analysis/{table},{uid},{role},{version}",
+					"name": "analysis",
+					"target": "analysis"
+				},
+				{
+					"pattern": "dep/{uid},{role},{tab},{syst}",
+					"name": "dep",
+					"target": "dep"
+				},
+				{
+					"pattern": "Structure/{table},{uid},{role}",
+					"name": "Structure",
+					"target": "Structure"
+				},
+				{
+					"pattern": "Labels",
+					"name": "Labels",
+					"target": "Labels"
+				},
+				{
+					"pattern": "ExcelDownloadThread",
+					"name": "ExcelDownloadThread",
+					"target": "ExcelDownloadThread"
+				},
+				{
+					"pattern": "massiveLog/{table},{username},{role}",
+					"name": "massiveLog",
+					"target": "massiveLog"
+				}],
+			"targets": {
+				"login": {
+					"viewName": "login",
+					"viewLevel": 0,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 0,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"home_u": {
+					"viewName": "Home_u",
+					"viewLevel": 0,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"users_d": {
+					"viewName": "Users_d",
+					"viewLevel": 0,
+					"routerClass": "sap.m.routing.Router",
+					"viewType": "XML",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"dep_d": {
+					"viewType": "XML",
+					"viewName": "dep_d",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"group_d": {
+					"viewType": "XML",
+					"viewName": "group_d",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"table_d": {
+					"viewType": "XML",
+					"viewName": "table_d",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"upload": {
+					"viewType": "XML",
+					"viewName": "upload",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"log": {
+					"viewType": "XML",
+					"viewName": "log",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"analysis": {
+					"viewType": "XML",
+					"viewName": "Analysis",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"dep": {
+					"viewType": "XML",
+					"viewName": "dep",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"Structure": {
+					"viewType": "XML",
+					"viewName": "Structure",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"Labels": {
+					"viewType": "XML",
+					"viewName": "LabelsScreen",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				},
+				"ExcelDownloadThread": {
+					"viewType": "XML",
+					"viewName": "ExcelDownloadThread",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "show"
+				},
+				"massiveLog": {
+					"viewType": "XML",
+					"viewName": "massiveLog",
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ManageTechTables.ManageTechTables.view",
+					"controlId": "app",
+					"controlAggregation": "pages",
+					"transition": "slide"
+				}
+			}
+		}
+	}
+}

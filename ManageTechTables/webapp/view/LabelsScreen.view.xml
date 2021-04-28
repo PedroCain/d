@@ -1,0 +1,79 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ManageTechTables.ManageTechTables.controller.LabelsScreen"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page id="idPage" showNavButton="true" class="sapUiContentPadding" navButtonPress="onPressBack" backgroundDesign="Solid"
+				title="{i18n>labelsTitle}">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="username"/>
+				</headerContent>
+				<content>
+					<Table id="labelsTable" fixedLayout="false" growingThreshold="10" growing="true" items="{labelsScreen>/}" mode="None">
+						<headerToolbar>
+							<Toolbar id="toolbar_vers" design="Solid">
+								<content>
+									<Text text="{i18n>labelsTitle}"/>
+									<ToolbarSpacer id="spacer_ver"/>
+									<SearchField id="labelsSearch" xmlns="sap.m" width="15%" search="onLabelSearch" placeholder="Search"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="labelTable" hAlign="Begin" vAlign="Middle">
+								<Label text="{i18n>labelTable}" design="Bold"/>
+							</Column>
+							<Column id="lableSystem" hAlign="Begin" vAlign="Middle">
+								<Label text="{i18n>lableSystem}" design="Bold"/>
+							</Column>
+							<Column id="labelVersion" hAlign="Begin" vAlign="Middle">
+								<Label text="{i18n>labelVersion}" design="Bold"/>
+							</Column>
+							<Column id="labelLabel" hAlign="Begin" vAlign="Middle">
+								<Label text="{i18n>labelLabel}" design="Bold"/>
+							</Column>
+							<!--Start Insert Angelo-->
+							<Column id="labelDownload" hAlign="Begin" vAlign="Middle">
+								<Label text="{i18n>labelDownload}" design="Bold"/>
+							</Column>
+							<!--End Insert Angelo-->
+						</columns>
+						<items>
+							<ColumnListItem id="labelsColumns">
+								<cells>
+									<Text id="valueTable" text="{labelsScreen>TABLENAME}"/>
+									<Text id="valuSystem" text="{labelsScreen>SYSTEM}"/>
+									<Text id="valueVersion" text="{labelsScreen>VERSION}"/>
+									<Text id="valueLabel" text="{labelsScreen>LABEL}"/>
+									<!--Start Insert Angelo-->
+									<Text id="valueDownload" text="{labelsScreen>DOWNLOAD}"/>
+									<!--End Insert Angelo-->
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<!--Start Insert Angelo-->
+				<footer>
+					<Bar id="labelsBar">
+						<contentMiddle>
+							<Button id="buttonDownload" type="Emphasized" tooltip="{i18n>downloadAllLabels}" icon="sap-icon://download" press="downloadAllLabels"
+								text="{i18n>downloadAllLabels}" enabled="false">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<Button id="buttonMove" type="Emphasized" tooltip="{i18n>moveAllTables}" icon="sap-icon://journey-depart" press="moveAllTables"
+								text="{i18n>moveAllTables}" enabled="false" visible="{exportVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+						</contentMiddle>
+					</Bar>
+				</footer>
+				<!--End Insert Angelo-->
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

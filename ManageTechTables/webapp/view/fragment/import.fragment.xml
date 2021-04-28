@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="importDialogId" noDataText="No Products Found" title="{i18n>standardTable}" search="handleSearchTable"
+		liveChange="onSearchTable" confirm="handleSelect" cancel="handleClose" items="{importList>/}">
+		<StandardListItem title="{importList>Tablename}" description="" iconDensityAware="false" iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

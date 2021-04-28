@@ -1,0 +1,383 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m"
+	xmlns:t="sap.ui.table" controllerName="ManageTechTables.ManageTechTables.controller.Home_u" id="home_u_view" xmlns:core="sap.ui.core">
+	<SplitApp id="SplitApp" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange" mode="HideMode">
+		<detailPages>
+			<Page id="detail" class="sapUiStdPage" backgroundDesign="Solid">
+				<headerContent id="header_content">
+					<!--Start Insert Andrea-->
+					<!--<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://sap-logo-shape" size="1em" id="icon_sys"/>-->
+					<!--<Label visible="true" text="{systemName>/system}" class="sapUiTinyMarginEnd"/>-->
+					<!--End Insert Andrea-->					
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+					<Button id="b_admin_view" text="{i18n>b_admin_view}" tooltip="{i18n>b_admin_view}" icon="sap-icon://share" press="toAdminView"/>
+					<!--Start Delete Angelo-->
+					<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="b_exit" text="{i18n>b_exit}"-->
+					<!--	tooltip="{i18n>b_exit}" icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content>
+					<HBox>
+						<VBox width="50%">
+							<!--Start Delete Angelo-->
+							<!--<ObjectHeader title="{detail_tbl>/TABLENAME}" titleActive="false" id="header0" titleLevel="H2"-->
+							<!--number="{ path: 'detail_tbl>/VERSION' , formatter: '.formatter.version'}">-->
+							<!--End Delete Angelo-->
+							<!--Start Insert Angelo-->
+							<HBox class="sapUiSmallMarginBegin">
+								<core:Icon id="iconHeaderDetail" src="sap-icon://circle-task-2" color="Negative" class="sapUiLargeMarginTop" size="2rem"/>
+								<!--""sap-icon://circle-task-2""-->
+								<!---->
+								<VBox width="100%">
+									<ObjectHeader title="{detail_tbl>/TABLENAME}" titleActive="false" id="header0" titleLevel="H2"
+										number="{ path: 'detail_tbl>/VERSION' , formatter: '.formatter.version'}">
+										<!--End Insert Angelo-->
+										<attributes>
+											<!--Start Insert Angelo-->
+											<!--Family-->
+											<ObjectAttribute id="familyDetail" visible="{mainVisible>/visible}"/>
+											<!--Number of records-->
+											<ObjectAttribute id="numRecDetail" visible="{mainVisible>/visible}"/>
+											<!--Last Update Date-->
+											<ObjectAttribute id="lastUpdDetail" visible="{mainVisible>/visible}"/>
+											<!--End Insert Angelo-->
+											<!--Start Delete Angelo-->
+											<!--<ObjectAttribute text="{i18n>system_dep} {detail_tbl&gt;/SYSTEM}" visible="{mainVisible>/visible}"/>-->
+											<!--<ObjectAttribute-->
+											<!--	text="{i18n>creation_date} {path: 'detail_tbl&gt;/CREATIONDATE', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"-->
+											<!--	visible="{mainVisible>/visible}"/>-->
+											<!--<ObjectAttribute text="{i18n>owner} {detail_tbl&gt;/RESPONSIBLE}"/>-->
+											<!--End Delete Angelo-->
+											<ObjectAttribute text="{i18n>descr} {detail_tbl&gt;/DESCRIPTION}" visible="{mainVisible>/visible}"/>
+										</attributes>
+									</ObjectHeader>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox width="25%" class="sapUiLargeMarginTop">
+							<!--Upload Excel button-->
+							<!--onOpenDialogUpl-->
+							<Button id="bupl_ver" type="Emphasized" tooltip="{i18n>bupl_dep}" icon="sap-icon://upload" press="lockManagement" text="{i18n>bupl_dep}"
+								width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Start Insert Angelo - Download From ECC-->
+							<!--<Button id="bupl_ecc" type="Emphasized" tooltip="{i18n>bupl_ecc}" icon="sap-icon://upload-to-cloud" press="onOpenDialogUplEcc"-->
+							<!--	text="{i18n>bupl_ecc}">-->
+							<!--	<layoutData>-->
+							<!--		<FlexItemData baseSize="auto"/>-->
+							<!--	</layoutData>-->
+							<!--</Button>-->
+							<!--End Insert Angelo-->
+							<!--Log button-->
+							<Button id="b_log" type="Emphasized" tooltip="{i18n>b_log}" icon="sap-icon://timesheet" press="toLog" text="{i18n>b_log}" width="90%"
+								visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Compare button-->
+							<!--<Button id="b_comp" type="Emphasized" tooltip="{i18n>b_comp}" icon="sap-icon://compare" text="{i18n>b_comp}" press="toCompare">-->
+							<!--loadGlobalDependencies-->
+							<Button id="b_comp" type="Emphasized" tooltip="{i18n>b_comp}" icon="sap-icon://compare" text="{i18n>b_comp}" press="lockManagement"
+								width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Start Insert Angelo-->
+							<!--Import from Test button-->
+							<Button id="butImporTest" type="Emphasized" tooltip="{i18n>butImportTest}" icon="sap-icon://download" text="{i18n>butImportTest}"
+								press="onImportFromTest" width="90%" visible="{exportVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Angelo-->
+						</VBox>
+						<VBox width="25%" class="sapUiLargeMarginTop">
+							<!--Analysis button-->
+							<Button id="b_analysis" type="Emphasized" tooltip="{i18n>b_analysis}" icon="sap-icon://pipeline-analysis" text="{i18n>b_analysis}"
+								press="toAnalyze" width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--Start Insert Angelo-->
+							<!--Structure button-->
+							<Button id="butStructure" type="Emphasized" tooltip="{i18n>butStructure}" icon="sap-icon://table-view" press="goToStructure"
+								text="{i18n>butStructure}" width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Angelo-->
+							<!--Start Insert Angelo-->
+							<!--Labels button-->
+							<Button id="butLabels" type="Emphasized" tooltip="{i18n>butLabels}" icon="sap-icon://tag" text="{i18n>butLabels}" press="toLabels"
+								width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Angelo-->
+							<!--Start Insert Andrea-->
+							<Button id="butMassiveLog" type="Emphasized" tooltip="{i18n>butMassiveLog}" icon="sap-icon://timesheet" text="{i18n>butMassiveLog}" press="toMassiveLog"
+								width="90%" visible="{mainVisible>/visible}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Andrea-->
+						</VBox>
+					</HBox>
+				</content>
+				<!--Versions table-->
+				<!--<Panel id="panel0" backgroundDesign="Transparent" expandAnimation="false"/>-->
+				<!--Start Insert Angelo-->
+				<Image class="sapUiTinyMarginBeginEnd" src="{logo>/sPath}" width="15%"/>
+				<!--End Insert Angelo-->
+				<!--<Table id="table_vers" items="{ver_d>/}" mode="SingleSelectMaster" growing="true" growingThreshold="10" itemPress="onPressNavToDetail"-->
+				<!--fixedLayout="false">-->
+				<Table id="table_vers" fixedLayout="false" itemPress="onPressNavToDetail" growingThreshold="10" growing="true" mode="MultiSelect"
+					items="{ver_d>/}">
+					<headerToolbar>
+						<Toolbar id="toolbar_vers" design="Solid">
+							<content>
+								<Text text="{i18n>h_versions}"/>
+								<ToolbarSpacer id="spacer_ver"/>
+								<Button press="onCompareVersions" icon="sap-icon://compare-2" text="{i18n>c_compareBut}"/>
+							</content>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="ch_tablename" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>c_tablename}" design="Bold"/>
+						</Column>
+						<Column id="ch_systemname" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>c_system}" design="Bold"/>
+						</Column>
+						<Column id="ch_version" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>c_version}" design="Bold"/>
+						</Column>
+						<Column id="ch_date" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>c_date}" design="Bold"/>
+						</Column>
+						<!--Start Insert Angelo-->
+						<Column id="ch_labels" hAlign="Begin">
+							<Label text="{i18n>labelText}" design="Bold"/>
+						</Column>
+						<!--End Insert Angelo-->
+						<Column id="ch_source" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>c_source}" design="Bold"/>
+						</Column>
+						<Column id="numRec" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>numRecLabel}" design="Bold"/>
+						</Column>
+						<Column id="onEcc" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>onEccLabel}" design="Bold"/>
+						</Column>
+						<Column id="oldStructure" hAlign="Begin" vAlign="Middle">
+							<Label text="{i18n>oldStructureLabel}" design="Bold"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem id="item_versions" type="Navigation">
+							<cells>
+								<Text id="text1_ver_d" text="{ver_d>TABLENAME}"/>
+								<Text id="text2_ver_d" text="{ver_d>SYSTEMNAME}"/>
+								<Text id="text3_ver_d" text="{ver_d>VERSION}"/>
+								<Text id="text4_ver_d" text="{ path: 'ver_d>DATE', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }"/>
+								<!--Start Insert Angelo-->
+								<MultiInput enableMultiLineMode="true" id="multiInputId" tokens="{ver_d>LABELS}" tokenUpdate="onTokenChange" change="onLabelChange"
+									width="100%" showValueHelp="false" showSuggestion="true" suggestionRows="{labels>/}">
+									<suggestionColumns>
+										<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label text="Label"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem>
+											<cells>
+												<Label text="{labels>LABEL}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+									<tokens>
+										<Token key="{ver_d>key}" text="{ver_d>text}"/></tokens>
+								</MultiInput>
+								<!--End Insert Angelo-->
+								<Text id="text5_ver_d" text="{ver_d>SOURCE}"/>
+								<Text id="text6_ver_d" text="{ver_d>RECORDS}"/>
+								<Text id="text7_ver_d" text="{ver_d>SAP}"/>
+								<Text id="text8_ver_d" text="{path: 'ver_d>STRUCTVERSION', formatter: '.formatter.getOldStructure'}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<!--Dependences table-->
+				<Panel id="panel_dep" backgroundDesign="Transparent" expandAnimation="false"/>
+				<Table id="table_dep" items="{dep_d>/}" mode="Delete" growing="true" growingThreshold="10" delete="onDelDep" growingScrollToLoad="true"
+					fixedLayout="false">
+					<headerToolbar>
+						<Toolbar id="toolbardep" design="Solid">
+							<content>
+								<Text text="{i18n>h_dep}"/>
+								<ToolbarSpacer id="spacer_dep"/>
+								<Input xmlns="sap.m" id="input_table" showTableSuggestionValueHelp="false" visible="false"/>
+								<Button id="bcrea_dep" tooltip="{i18n>b_creadep}" icon="sap-icon://add" press="tocreateDep" visible="{mainVisible>/visible}"/>
+							</content>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="ch_orfi" hAlign="Begin">
+							<Label text="{i18n>c_orfi}" design="Bold"/>
+						</Column>
+						<Column id="ch_ortab" hAlign="Begin" visible="false">
+							<Label text="{i18n>c_ortab}" design="Bold"/>
+						</Column>
+						<Column id="ch_orsy" hAlign="Begin" visible="false">
+							<Label text="{i18n>c_orsy}" design="Bold"/>
+						</Column>
+						<Column id="ch_destfi" hAlign="Begin">
+							<Label text="{i18n>c_destfi}" design="Bold"/>
+						</Column>
+						<Column id="ch_destab" hAlign="Begin">
+							<Label text="{i18n>c_destab}" design="Bold"/>
+						</Column>
+						<Column id="ch_destsy" hAlign="Begin">
+							<Label text="{i18n>c_desty}" design="Bold"/>
+						</Column>
+						<Column id="ch_owner" hAlign="Begin" visible="false">
+							<Label text="{i18n>c_owner}" design="Bold"/>
+						</Column>
+						<Column id="ch_creadat" hAlign="Begin" visible="false">
+							<Label text="{i18n>c_creadat}" design="Bold" visible="false"/>
+						</Column>
+						<Column id="ch_lastdat" hAlign="Begin" visible="false">
+							<Label text="{i18n>c_lastdat}" design="Bold" visible="false"/>
+						</Column>
+						<!--Start Insert Angelo-->
+						<Column id="idCollector" hAlign="Begin">
+							<Label text="{i18n>labelCollector}" design="Bold"/>
+						</Column>
+						<!--End Insert Angelo-->
+					</columns>
+					<items>
+						<ColumnListItem id="item_dep" type="Active">
+							<cells>
+								<Text id="text3_dep" text="{dep_d>ORI_FIELD}"/>
+								<Text id="text1_dep" text="{dep_d>ORI_TABLE}"/>
+								<Text id="text2_dep" text="{dep_d>ORI_SYSTEM}"/>
+								<Text id="text6_dep" text="{dep_d>DEST_FIELD}"/>
+								<Text id="text4_dep" text="{dep_d>DEST_TABLE}"/>
+								<Text id="text5_dep" text="{dep_d>DEST_SYSTEM}"/>
+								<Text id="text7_dep" text="{dep_d>OWNER_DEST}"/>
+								<!--Start Delete Angelo-->
+								<!--<Text id="text10_dep" text="{dep_d>VERSION}"/>-->
+								<!--End Delete Angelo-->
+								<Text id="text8_dep" text="{ path: 'dep_d>CREATION_DATE', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"
+									visible="false"/>
+								<Text id="text9_dep" text="{ path: 'dep_d>LAST_UPDATE', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"
+									visible="false"/>
+								<!--Start Insert Angelo-->
+								<Text id="text10Dep" text="{path: 'dep_d>COLLECTOR', formatter: '.formatter.showCollector'}"/>
+								<!--End Insert Angelo-->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<!--Start Delete Angelo-->
+				<!--<Panel id="panel_fin" backgroundDesign="Transparent" expandAnimation="false"/>-->
+				<!--<footer>-->
+				<!--	<Bar id="Bar_d">-->
+				<!--		<contentMiddle>-->
+				<!--Start Insert Angelo-->
+				<!--Button to import additional tables-->
+				<!--			<Button id="b_import" type="Emphasized" tooltip="{i18n>b_import}" icon="sap-icon://group-2" press="onShowImportDialog"-->
+				<!--				text="{i18n>b_import}">-->
+				<!--				<layoutData>-->
+				<!--					<FlexItemData baseSize="auto"/>-->
+				<!--				</layoutData>-->
+				<!--			</Button>-->
+				<!--End Insert Angelo-->
+				<!--		</contentMiddle>-->
+				<!--	</Bar>-->
+				<!--</footer>-->
+				<!--End Delete Angelo-->
+			</Page>
+			<!--Page that shows the content of the version selected-->
+			<Page id="detailDetail" backgroundDesign="Solid" class="sapUiContentPadding" showNavButton="true" navButtonPress="onPressDetailBack">
+				<ScrollContainer id="scrollContainer">
+					<content>
+						<Panel backgroundDesign="Transparent" expandAnimation="false"/>
+						<!--<t:Table id="table_ver_d" selectionMode="None" visibleRowCount="{ path: 'table_ver_d>/', formatter: '.formatter.visiblerow' }"-->
+						<!--	firstVisibleRow="1" enableColumnReordering="true"/>-->
+						<HBox width="100%" id="boxContent"></HBox>
+					</content>
+				</ScrollContainer>
+				<Panel backgroundDesign="Transparent" expandAnimation="false"/>
+				<footer>
+					<Bar id="Bar_d2">
+						<contentMiddle>
+							<!--Start Delete Angelo-->
+							<!--<Button id="bdwn_vers" type="Emphasized" tooltip="{i18n>bdwn_vers}" icon="sap-icon://download" press="onDwn_vers" text="{i18n>bdwn_vers}">-->
+							<!--	<layoutData>-->
+							<!--		<FlexItemData baseSize="auto"/>-->
+							<!--	</layoutData>-->
+							<!--</Button>-->
+							<!--End Delete Angelo-->
+							<!--Start Insert Angelo-->
+							<Button id="downExcel" type="Emphasized" tooltip="{i18n>downloadExcel}" icon="sap-icon://excel-attachment" press="onDownloadExcel"
+								text="{i18n>downloadExcel}">
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</Button>
+							<!--End Insert Angelo-->
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page id="master2" class="sapUiStdPage" enableScrolling="false">
+				<headerContent id="headMaster">
+					<SearchField xmlns="sap.m" liveChange="onSearchTbl" placeholder="Search"/>
+				</headerContent>
+				<content>
+					<ScrollContainer id="scroll_mast" height="100%" width="100%" vertical="true">
+						<List id="tables_id" items="{tables>/}" mode="SingleSelectMaster" selectionChange="onListItemPress" busyIndicatorDelay="500"
+							enableBusyIndicator="true" growing="true">
+							<items>
+								<ObjectListItem title="{tables>TABLENAME}" type="Active" custom:to="detail" intro="{i18n>owner} {tables&gt;RESPONSIBLE}"
+									number="{ path: 'tables>VERSION' , formatter: '.formatter.version'}">
+									<attributes>
+										<ObjectAttribute
+											text="{i18n>creation_date} {path: 'tables&gt;CREATIONDATE', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }"/>
+										<ObjectAttribute text="{i18n>system_dep} {tables&gt;SYSTEM}"/>
+									</attributes>
+								</ObjectListItem>
+							</items>
+						</List>
+					</ScrollContainer>
+					<Button id="butFooter" text="Filters"/>
+				</content>
+				<footer>
+					<Bar id="footerBar">
+						<contentMiddle>
+							<ComboBox items="{combo>/comboData}" width="90%" placeholder="{i18n>comboBox}" change="selectFamily">
+								<core:ListItem id="itemId" key="{combo>family}" text="{combo>family}"/>
+								<layoutData>
+									<FlexItemData baseSize="auto"/>
+								</layoutData>
+							</ComboBox>
+						</contentMiddle>
+					</Bar>
+				</footer>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:View>

@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>dialog_del_user}" class="sapUiContentPadding">
+		<content>
+			<Text id="text1_user" text="{i18n>w_del_user}"/>
+		</content>
+		<beginButton>
+			<Button text="{i18n>b_ok}" press="onDeleteUser"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>dialogCloseButtonText}" press="onCloseDialogDelUser"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

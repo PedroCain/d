@@ -1,0 +1,76 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ManageTechTables.ManageTechTables.controller.log">
+	<App>
+		<pages>
+			<Page id="log" class="sapUiContentPadding" title="{i18n>h_log}" backgroundDesign="Solid" showFooter="false" showNavButton="true"
+				navButtonPress="onBack">
+				<headerContent>
+					<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+					<Label id="head_user"/>
+					<!--Start Delete Angelo-->
+					<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="{i18n>b_exit}" tooltip="{i18n>b_exit}"-->
+					<!--	icon="sap-icon://action" press="onLogin"/>-->
+					<!--End Delete Angelo-->
+				</headerContent>
+				<content>
+					<Panel id="panel0" backgroundDesign="Transparent" expandAnimation="false"/>
+					<t:Table id="table_log" title="{i18n>h_versions}" rows="{log_d>/}" selectionMode="None" enableColumnReordering="true">
+						<t:columns>
+							<t:Column filterProperty="TABLENAME" id="ch_tablename" hAlign="Begin">
+								<Label text="{i18n>c_tablename}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>TABLENAME}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="SYSTEMNAME" id="ch_systemname" hAlign="Begin">
+								<Label text="{i18n>c_system}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>SYSTEMNAME}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="VERSION" id="ch_version" hAlign="Begin">
+								<Label text="{i18n>c_version}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>VERSION}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column filterProperty="USERNAME" id="ch_username" hAlign="Begin">
+								<Label text="{i18n>c_username}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>USERNAME}"></Text>
+								</t:template>
+							</t:Column>
+							<!--Start Insert Angelo-->
+							<t:Column id="onSapColumn" filterProperty="IMPORT_SAP" hAlign="Begin">
+								<Label text="{i18n>onSapLabel}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>IMPORT_SAP}"></Text>
+								</t:template>
+							</t:Column>
+							<!--End Insert Angelo-->
+							<t:Column id="ch_csv_filename" filterProperty="CSV_FILENAME" hAlign="Begin">
+								<Label text="{i18n>c_csv_filename}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>CSV_FILENAME}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column id="ch_n_csv" hAlign="Begin" filterProperty="N_CSV">
+								<Label text="{i18n>c_n_csv}" design="Bold"/>
+								<t:template>
+									<Text text="{log_d>N_CSV}"></Text>
+								</t:template>
+							</t:Column>
+							<t:Column id="ch_date" hAlign="Begin">
+								<Label text="{i18n>c_date}" design="Bold"/>
+								<t:template>
+									<Text text="{ path: 'log_d>DATE', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }"></Text>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<Panel backgroundDesign="Transparent" expandAnimation="false"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

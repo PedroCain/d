@@ -1,0 +1,111 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="ManageTechTables.ManageTechTables.controller.dep">
+	<Page showNavButton="true" navButtonPress="onPressBack" backgroundDesign="Solid" title="{i18n>Creadip}">
+		<headerContent>
+			<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://employee" size="1em" id="icon_user"/>
+			<Label id="userLog"/>
+			<!--Start Delete Angelo-->
+			<!--<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="{i18n>b_exit}" tooltip="{i18n>b_exit}"-->
+			<!--	icon="sap-icon://action" press="onLogin"/>-->
+			<!--End Delete Angelo-->
+		</headerContent>
+		<content>
+			<Panel backgroundDesign="Translucent">
+				<HBox alignItems="Center" alignContent="Inherit" justifyContent="SpaceBetween" width="100%" height="100%" renderType="Bare">
+					<VBox class="sapUiSmallMarginEnd" width="15%">
+						<Text text="{i18n>SysOri}"/>
+						<Input id="systemOri" width="100%" editable="false" enabled="false" fieldWidth="100%"/>
+					</VBox>
+					<VBox class="sapUiSmallMarginEnd" width="25%">
+						<Text text="{i18n>TabOri}"/>
+						<Input id="tableOri" width="100%" editable="false" enabled="false" fieldWidth="100%"/>
+					</VBox>
+					<!--<VBox class="sapUiSmallMarginEnd" width="30%">-->
+					<!--	<Text text="{i18n>FieldOri}"/>-->
+					<!--	<Select id="fieldOri" forceSelection="false" change="onFieldOri" width="100%"/>-->
+					<!--</VBox>-->
+					<!--Start Insert Angelo-->
+					<RadioButtonGroup id="rbg1" columns="1" width="20%" class="sapUiTinyMargin" select="onSelectRadio">
+						<buttons>
+							<RadioButton id="rb1" text="{i18n>standardTable}"/>
+							<RadioButton id="rb2" text="{i18n>customizingTable}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<!--End Insert Angelo-->
+					<!--<VBox class="sapUiSmallMarginEnd" width="15%" visible="{fieldModelSettings>/standardVisible}">-->
+					<!--	<Text text="{i18n>DestSyst}"/>-->
+					<!--	<Select id="systemDest" change="onSyst" forceSelection="false" width="100%"/>-->
+					<!--</VBox>-->
+					<VBox class="sapUiSmallMarginEnd" width="40%" visible="{fieldModelSettings>/standardVisible}">
+						<Text text="{i18n>DestTab}"/>
+						<Input id="tableDest" width="100%" valueHelpRequest="onTab" showValueHelp="true" valueHelpOnly="true"
+							value="{fieldModel>/tableStandardDest}"/>
+						<!--<Select id="tableDest" forceSelection="false" change="onTab" width="100%"/>-->
+					</VBox>
+					<!--Start Insert Angelo-->
+					<VBox class="sapUiSmallMarginEnd" width="40%" visible="{fieldModelSettings>/customVisible}">
+						<Text text="{i18n>DestTab}"/>
+						<Input id="tableDestCustom" valueHelpOnly="true" value="{fieldModel>/tableCustDest}" width="100%" showValueHelp="true"
+							valueHelpRequest="onCustomizingValueHelp"/>
+					</VBox>
+					<!--End Insert Angelo-->
+				</HBox>
+			</Panel>
+			<FlexBox alignItems="Center" justifyContent="Center" backgroundDesign="Translucent" alignContent="Center" direction="Column"
+				renderType="Bare">
+				<!--Start Insert Angelo-->
+				<Table id="idDependenceFields" inset="false" items="{fieldModel>/fields}" width="60%">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="{i18n>depFields}" level="H2"/>
+							<ToolbarSpacer/>
+							<Button text="{i18n>addDepFields}" icon="sap-icon://add" press="addNewDep"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column width="50%">
+							<Text text="{i18n>FieldOri}"/>
+						</Column>
+						<Column width="50%" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>DestField}"/>
+						</Column>
+						<Column>
+							<Text text=""/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Select forceSelection="false" change="onFieldOri" width="100%" items="{fieldModel>/oriHelp}" selectedKey="{fieldModel>oriField}">
+									<core:Item key="{fieldModel>COLUMN_NAME}" text="{fieldModel>COLUMN_NAME}"/>
+								</Select>
+								<Select forceSelection="false" change="onFieldDest" width="100%" items="{fieldModel>/destHelp}" selectedKey="{fieldModel>destField}">
+									<core:Item key="{fieldModel>COLUMN_NAME}" text="{fieldModel>COLUMN_NAME}"/>
+								</Select>
+								<Button press="onDelete" icon="sap-icon://delete" text="{i18n>iconD}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</FlexBox>
+		</content>
+		<footer>
+			<Bar id="Bar_d">
+				<contentMiddle>
+					<Button id="accept" type="Emphasized" tooltip="{i18n>iconA}" icon="sap-icon://accept" press="onAccept" text="{i18n>iconA}"
+						activeIcon="sap-icon://accept">
+						<layoutData>
+							<FlexItemData baseSize="auto"/>
+						</layoutData>
+					</Button>
+					<Button id="delete" type="Emphasized" tooltip="{i18n>iconR}" icon="sap-icon://cancel" press="onPressBack" text="{i18n>iconR}"
+						activeIcon="sap-icon://cancel">
+						<layoutData>
+							<FlexItemData baseSize="auto"/>
+						</layoutData>
+					</Button>
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

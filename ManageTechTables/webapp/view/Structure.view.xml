@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ManageTechTables.ManageTechTables.controller.Structure"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>structMainTitle}" showNavButton="true" navButtonPress="onPressBack" class="sapUiContentPadding" backgroundDesign="Solid">
+				<content>
+					<Table id="structureTab" inset="false" items="{ path: 'struct>/', sorter: { path: 'position' } }" width="auto">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="structTitle" text="Structure" level="H2"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="20%">
+								<Text text="{i18n>structField}"/>
+							</Column>
+							<Column width="20%">
+								<Text text="{i18n>structKey}"/>
+							</Column>
+							<Column width="20%">
+								<Text text="{i18n>structType}"/>
+							</Column>
+							<Column width="20%">
+								<Text text="{i18n>structLength}"/>
+							</Column>
+							<Column width="20%">
+								<Text text="{i18n>structPos}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{struct>fieldname}"/>
+									<Text text="{struct>keyflag}"/>
+									<Text text="{struct>datatype}"/>
+									<Text text="{struct>leng}"/>
+									<Text text="{struct>position}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>h_upload}" class="sapUiContentPadding" state="Warning">
+		<content>
+			<l:VerticalLayout>
+				<u:FileUploader id="idfileUploader" typeMissmatch="handleTypeMissmatch" change="onChangeFUP" maximumFileSize="10"
+					fileSizeExceed="handleFileSize" maximumFilenameLength="50" filenameLengthExceed="handleFileNameLength" multiple="false" width="50%"
+					sameFilenameAllowed="false" buttonText="{i18n>upl_browser}" fileType="XLSX" style="Emphasized" placeholder="{i18n>uploadPlaceholder}"
+					uploadComplete="handleUploadComplete"/>
+			</l:VerticalLayout>
+		</content>
+		<beginButton>
+			<!--Start Delete Angelo-->
+			<!--<Button text="{i18n>b_ok}" press="onUpload"/>-->
+			<!--End Delete Angelo-->
+			<!--Start Insert Angelo-->
+			<Button id="uploadCSVFragment" text="{i18n>b_ok}" press="onFragmentCSVPress"/>
+			<!--End Insert Angelo-->
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>b_cancel}" press="onCloseDialogUpl"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
